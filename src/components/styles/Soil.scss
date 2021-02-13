@@ -1,0 +1,16 @@
+.Soil {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 100px;
+    background: url("../../assets/soil.png") bottom center no-repeat;
+    background-size: 80%;
+    position: absolute;
+    bottom: -25px;
+  }
+}
