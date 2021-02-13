@@ -23,6 +23,7 @@ function Rat({ show }) {
         totalScore: score + 1,
       })
     );
+    ratRef.current.classList.remove("Rat__showRat");
   }, [dispatch, score]);
 
   useEffect(() => {

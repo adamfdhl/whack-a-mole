@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="App__title">Whack-A-Mole!</h1>
-      <h2>Total Score: {score}</h2>
+      <h2>Total Score: {score} </h2>
       <button className="btnStart" onClick={playGame}>
         Start Game!
       </button>
