@@ -14,7 +14,7 @@ export const playerSlice = createSlice({
   },
 });
 
-export const { login, logout } = playerSlice.actions;
+export const { setUsername, updateScore } = playerSlice.actions;
 export const selectPlayer = (state) => state.player.username;
 export const selectScore = (state) => state.player.score;
 export default playerSlice.reducer;
