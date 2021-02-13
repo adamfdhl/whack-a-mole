@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Soil from "./Soil";
 import "./styles/Board.scss";
 
-function Board() {
+function Board({ start }) {
   const [rnd, setRnd] = useState(null);
+
   const random = () => Math.floor(Math.random() * 6);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setRnd(random());
-    }, 800);
+    let timer = null;
+    if (start) {
+      timer = setInterval(() => {
+        setRnd(random());
+      }, 800);
+    }
     return () => clearInterval(timer);
-  }, []);
+  }, [start]);
 
   const listOfSoil = [
     {
@@ -42,5 +47,13 @@ function Board() {
     </div>
   );
 }
+
+Board.defaultProps = {
+  start: false,
+};
+
+Board.propTypes = {
+  start: PropTypes.bool.isRequired,
+};
 
 export default Board;

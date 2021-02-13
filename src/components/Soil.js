@@ -20,4 +20,4 @@ Soil.propTypes = {
   showRat: PropTypes.bool.isRequired,
 };
 
-export default Soil;
+export default React.memo(Soil);

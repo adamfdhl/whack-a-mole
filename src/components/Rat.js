@@ -6,18 +6,18 @@ function Rat({ show }) {
   const ratRef = useRef(null);
 
   const toggleRat = useCallback(() => {
-    if (show) {
-      ratRef.current.classList.add("Rat__showRat");
-    }
+    ratRef.current.classList.add("Rat__showRat");
 
     setTimeout(() => {
       ratRef.current.classList.remove("Rat__showRat");
     }, 500);
-  }, [show]);
+  }, []);
 
   useEffect(() => {
-    toggleRat();
-  }, [toggleRat]);
+    if (show) {
+      toggleRat();
+    }
+  }, [show, toggleRat]);
 
   return <div ref={ratRef} className="Rat"></div>;
 }
@@ -30,4 +30,4 @@ Rat.propTypes = {
   show: PropTypes.bool.isRequired,
 };
 
-export default Rat;
+export default React.memo(Rat);
