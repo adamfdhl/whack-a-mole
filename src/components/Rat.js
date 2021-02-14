@@ -9,7 +9,7 @@ function Rat({ show }) {
   const ratRef = useRef(null);
   const score = useSelector(selectScore);
   const dispatch = useDispatch();
-  let audio = useMemo(() => new Audio(SoundEffect), []);
+  const audio = useMemo(() => new Audio(SoundEffect), []);
 
   const toggleRat = useCallback(() => {
     ratRef.current.classList.add("Rat__showRat");
