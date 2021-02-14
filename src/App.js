@@ -1,18 +1,25 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectScore } from "./store/slices/player/playerSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectScore, updateScore } from "./store/slices/player/playerSlice";
 import Board from "./components/Board";
 import "./App.scss";
 
 function App() {
   const [game, setGame] = useState(false);
+  const dispatch = useDispatch();
   const score = useSelector(selectScore);
 
   const playGame = () => {
+    console.log("start!");
     setGame(true);
-    setTimeout(() => {
-      setGame(false);
-    }, 10000);
+    dispatch(
+      updateScore({
+        totalScore: 0,
+      })
+    );
+    // setTimeout(() => {
+    //   setGame(false);
+    // }, 10000);
   };
 
   return (

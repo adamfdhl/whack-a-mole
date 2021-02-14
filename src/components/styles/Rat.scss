@@ -4,8 +4,8 @@
   background: url("../../assets/rat.png") bottom center no-repeat;
   background-size: 60%;
   position: absolute;
-  top: 100px;
-  transition: top 0.3s;
+  top: 1000px;
+  transition: top 0.5s;
   &__showRat {
     top: -15px;
   }

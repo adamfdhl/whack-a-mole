@@ -4,4 +4,17 @@
     font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
   }
+  .btnStart {
+    padding: 15px 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    color: black;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background-color: black;
+      color: #fff;
+    }
+  }
 }

@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectScore, updateScore } from "../store/slices/player/playerSlice";
+import SoundEffect from "../assets/audio/Pop.mp3";
 import PropTypes from "prop-types";
 import "./styles/Rat.scss";
 
@@ -8,13 +9,14 @@ function Rat({ show }) {
   const ratRef = useRef(null);
   const score = useSelector(selectScore);
   const dispatch = useDispatch();
+  let audio = useMemo(() => new Audio(SoundEffect), []);
 
   const toggleRat = useCallback(() => {
     ratRef.current.classList.add("Rat__showRat");
 
     setTimeout(() => {
       ratRef.current.classList.remove("Rat__showRat");
-    }, 500);
+    }, 1000);
   }, []);
 
   const hitRat = useCallback(() => {
@@ -23,8 +25,9 @@ function Rat({ show }) {
         totalScore: score + 1,
       })
     );
+    audio.play();
     ratRef.current.classList.remove("Rat__showRat");
-  }, [dispatch, score]);
+  }, [dispatch, score, audio]);
 
   useEffect(() => {
     if (show) {

@@ -13,7 +13,7 @@ function Board({ start }) {
     if (start) {
       timer = setInterval(() => {
         setRnd(random());
-      }, 800);
+      }, 1000);
     }
     return () => clearInterval(timer);
   }, [start]);

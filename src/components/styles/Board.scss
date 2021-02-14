@@ -4,4 +4,8 @@
   max-width: 600px;
   display: flex;
   flex-wrap: wrap;
+  cursor: url("../../assets/hammer.png"), auto;
+  &:active {
+    cursor: url("../../assets/hammer-hit.png"), auto;
+  }
 }
