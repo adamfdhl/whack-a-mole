@@ -17,9 +17,9 @@ function App() {
         totalScore: 0,
       })
     );
-    // setTimeout(() => {
-    //   setGame(false);
-    // }, 10000);
+    setTimeout(() => {
+      setGame(false);
+    }, 15000);
   };
 
   return (
