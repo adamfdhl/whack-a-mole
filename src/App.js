@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectScore, updateScore } from "./store/slices/player/playerSlice";
 import Board from "./components/Board";
@@ -9,7 +9,7 @@ function App() {
   const dispatch = useDispatch();
   const score = useSelector(selectScore);
 
-  const playGame = () => {
+  const playGame = useCallback(() => {
     console.log("start!");
     setGame(true);
     dispatch(
@@ -20,7 +20,11 @@ function App() {
     setTimeout(() => {
       setGame(false);
     }, 15000);
-  };
+  }, [dispatch]);
+
+  useEffect(() => {
+    document.getElementById("loadApp").remove();
+  }, []);
 
   return (
     <div className="App">
